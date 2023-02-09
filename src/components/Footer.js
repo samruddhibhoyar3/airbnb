@@ -1,16 +1,27 @@
-import { BsTwitter, BsInstagram, BsFacebook } from 'react-icons/bs'
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import BottomNavigation from '@mui/material/BottomNavigation'
+import BottomNavigationAction from '@mui/material/BottomNavigationAction'
+import RestoreIcon from '@mui/icons-material/Restore'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 
-const Footer = () => {
-  const icons = [<BsTwitter />, <BsInstagram />, <BsFacebook />]
+export default function Footer() {
+  const [value, setValue] = React.useState(0)
+
   return (
-    <div className='bg-white border-t-2 shadow-md  shadow-gray-300 sticky bottom-0 h-20 w-full flex items-center justify-center gap-6'>
-      {icons.map((icon) => (
-        <div className='text-[30px] text-gray-600 hover:text-black duration-100 ease-out '>
-          {icon}
-        </div>
-      ))}
+    <div className='bottom-nav'>
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue)
+        }}
+      >
+        <BottomNavigationAction label='Recents' icon={<RestoreIcon />} />
+        <BottomNavigationAction label='Favorites' icon={<FavoriteIcon />} />
+        <BottomNavigationAction label='Nearby' icon={<LocationOnIcon />} />
+      </BottomNavigation>
     </div>
   )
 }
-
-export default Footer

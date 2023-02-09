@@ -1,46 +1,28 @@
 import React from 'react'
-
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 import { BsStarFill } from 'react-icons/bs'
-const Rental = ({ title, image, price }) => {
+
+const MediaCard = ({ title, image, price }) => {
   return (
-    <div className=''>
-      <div className='relative'>
-        <div className='grad absolute w-full h-full '></div>
-        <div className='flex  '>
-          {/* Background */}
-          <img
-            src={image}
-            alt=''
-            className='object-cover rounded-[1.3rem] sm:h-[17rem]  md:h-[13rem] w-full'
-          />
-          {/* Title */}
-          <div>
-            {title}
-            <span>&#x2022;</span>
-            <p className='text-[18px] text-slate-200'> ${price}</p>
-          </div>
-        </div>
-      </div>
-      {/* Description */}
-      <div className='pt-3 flex justify-between items-start'>
-        {/* Left */}
-        <div className=''>
-          <p className='max-w-[17rem] font-semibold text-[17px]'>
-            This is a rare find
-          </p>
-          <p className='max-w-[17rem]  text-[16px] -mt-1 text-gray-500'>
-            Jan 28 - Aug 9
-          </p>
-          <p className='max-w-[17rem] font-semibold text-[17px]'>${price}</p>
-        </div>
-        {/* Right */}
-        <div className='flex items-center space-x-1'>
-          <BsStarFill />
-          <p className='text-[15px]'>5.0</p>
-        </div>
-      </div>
-    </div>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia sx={{ height: 140 }} image={image} title={title} />
+
+      <CardContent>
+        <Typography gutterBottom variant='h5' component='div'>
+          {title}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size='small'>Share</Button>
+        <Button size='small'>Learn More</Button>
+      </CardActions>
+    </Card>
   )
 }
 
-export default Rental
+export default MediaCard

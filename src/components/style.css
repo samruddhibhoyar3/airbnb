@@ -1,0 +1,12 @@
+.logo {
+  height: 80px;
+  flex-wrap: wrap;
+  outline: none;
+  align-items: center;
+  display: inline-flex;
+  height: 80px;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+  box-sizing: border-box;
+}
